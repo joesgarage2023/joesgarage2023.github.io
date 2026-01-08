@@ -39,7 +39,7 @@
       line-height:1.55;
     }
 
-    a{ color:var(--accent); text-decoration:none; cursor:pointer; }
+    a{ color:var(--accent); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
     .container{
@@ -75,7 +75,6 @@
     .brand img{
       height:36px;
       width:auto;
-      display:block;
     }
     .brand b{ font-size:.98rem; }
     .brand span{ color:var(--muted2); font-size:.85rem; }
@@ -98,38 +97,28 @@
     }
 
     /* Hero */
-    .hero{ padding:34px 0 14px; }
+    .hero{ padding:40px 0 22px; text-align:center; }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.25fr .75fr;
-      gap:18px;
-      align-items:center;
-    }
-    @media (max-width:900px){
-      .hero-grid{ grid-template-columns:1fr; }
-    }
-
-    .headline{
-      font-size:clamp(1.8rem,3.2vw,2.6rem);
-      line-height:1.15;
-      margin-bottom:10px;
+    .hero-logo{
+      max-width:220px;
+      width:100%;
+      margin:0 auto 18px;
+      display:block;
     }
 
     .cta{
       display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:8px;
     }
     .btn{
-      padding:11px 14px;
+      padding:11px 18px;
       border-radius:12px;
       border:1px solid var(--border);
       background:rgba(255,255,255,.06);
       color:var(--text);
       font-weight:600;
       box-shadow:var(--shadow);
-      cursor:pointer;
     }
     .btn.primary{
       background:rgba(79,195,247,.14);
@@ -247,20 +236,16 @@
 
 <main class="container">
 
+  <!-- Updated Hero -->
   <section class="hero">
-    <div class="hero-grid">
-      <div>
-        <h1 class="headline">Joe’s TPMS</h1>
-        <div class="cta">
-          <a class="btn primary"
-             href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
-             target="_blank">
-            Download on Google Play
-          </a>
-          <a class="btn" href="#sensors">View compatible sensors</a>
-          <button class="btn" onclick="openModal()">Instructional video</button>
-        </div>
-      </div>
+    <img src="main.png" alt="Joe’s TPMS Logo" class="hero-logo">
+
+    <div class="cta">
+      <a class="btn primary"
+         href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
+         target="_blank">
+        Download on Google Play
+      </a>
     </div>
   </section>
 
@@ -283,7 +268,6 @@
         Disclaimer: Joe’s TPMS is not affiliated with AliExpress.
       </p>
 
-      <!-- Modal trigger inside the same card -->
       <button class="btn" style="margin-top:10px;" onclick="openModal()">
         Watch instructional video
       </button>
@@ -323,7 +307,7 @@
     </div>
   </section>
 
-  <section class="social" id="links">
+  <section class="social">
     <a href="https://www.instagram.com/joes_garage2023" target="_blank">
       <img src="instagram.png" alt="Instagram">
     </a>
