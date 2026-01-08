@@ -13,99 +13,112 @@
 
   <style>
     :root{
-      --bg: #000;
-      --panel: #0b0b0b;
-      --panel2: #101010;
-      --border: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.65);
-      --muted2: rgba(255,255,255,.48);
-      --accent: #4FC3F7;
-      --shadow: 0 12px 30px rgba(0,0,0,.45);
-      --radius: 16px;
-      --max: 1100px;
+      --bg:#000;
+      --panel:#0b0b0b;
+      --panel2:#101010;
+      --border:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+      --muted2:rgba(255,255,255,.48);
+      --accent:#4FC3F7;
+      --shadow:0 12px 30px rgba(0,0,0,.45);
+      --radius:16px;
+      --max:1100px;
     }
 
-    *{ box-sizing: border-box; }
-    html, body { height: 100%; }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
 
     body{
       margin:0;
-      background: radial-gradient(1200px 600px at 50% -150px, rgba(79,195,247,.18), transparent 70%), var(--bg);
-      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 50% -150px, rgba(79,195,247,.18), transparent 70%),
+        var(--bg);
+      color:var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      line-height: 1.55;
+      line-height:1.55;
     }
 
-    a{ color: var(--accent); text-decoration: none; }
-    a:hover{ text-decoration: underline; }
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
 
     .container{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 22px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:22px;
     }
 
     /* Top nav */
     .nav{
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      background: rgba(0,0,0,.55);
-      border-bottom: 1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,.55);
+      border-bottom:1px solid var(--border);
     }
     .nav-inner{
       display:flex;
       align-items:center;
-      justify-content: space-between;
+      justify-content:space-between;
       gap:16px;
-      padding: 14px 22px;
-      max-width: var(--max);
-      margin: 0 auto;
+      padding:14px 22px;
+      max-width:var(--max);
+      margin:0 auto;
     }
-    .brand b{ font-size: 0.98rem; }
-    .brand span{ color: var(--muted2); font-size: 0.85rem; }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand img{
+      height:36px;
+      width:auto;
+      display:block;
+    }
+    .brand b{ font-size:.98rem; }
+    .brand span{ color:var(--muted2); font-size:.85rem; }
 
     .nav-links{
       display:flex;
       gap:16px;
-      flex-wrap: wrap;
+      flex-wrap:wrap;
     }
     .nav-links a{
-      color: var(--muted);
-      font-size: 0.92rem;
-      padding: 6px 10px;
-      border-radius: 10px;
+      color:var(--muted);
+      font-size:.92rem;
+      padding:6px 10px;
+      border-radius:10px;
     }
     .nav-links a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.06);
-      text-decoration: none;
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      text-decoration:none;
     }
 
     /* Hero */
-    .hero{ padding: 34px 0 14px; }
+    .hero{ padding:34px 0 14px; }
 
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items: center;
+      grid-template-columns:1.25fr .75fr;
+      gap:18px;
+      align-items:center;
     }
-    @media (max-width: 900px){
-      .hero-grid{ grid-template-columns: 1fr; }
+    @media (max-width:900px){
+      .hero-grid{ grid-template-columns:1fr; }
     }
 
     .headline{
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-      line-height: 1.15;
-      margin-bottom: 10px;
+      font-size:clamp(1.8rem,3.2vw,2.6rem);
+      line-height:1.15;
+      margin-bottom:10px;
     }
     .subhead{
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 18px;
+      color:var(--muted);
+      font-size:1.05rem;
+      margin-bottom:18px;
     }
 
     .cta{
@@ -114,50 +127,36 @@
       flex-wrap:wrap;
     }
     .btn{
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 600;
-      box-shadow: var(--shadow);
+      padding:11px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+      box-shadow:var(--shadow);
     }
     .btn.primary{
-      background: rgba(79,195,247,.14);
-      border-color: rgba(79,195,247,.35);
-    }
-
-    .hero-card{
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-    .hero-card img{
-      max-width: 260px;
-      width:100%;
-      margin-bottom: 10px;
+      background:rgba(79,195,247,.14);
+      border-color:rgba(79,195,247,.35);
     }
 
     /* Cards */
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:1fr 1fr;
       gap:14px;
-      margin-top: 18px;
+      margin-top:18px;
     }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
+    @media (max-width:900px){
+      .grid{ grid-template-columns:1fr; }
     }
 
     .card{
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
     }
 
     /* Social */
@@ -165,26 +164,26 @@
       display:flex;
       justify-content:center;
       gap:22px;
-      margin-top: 22px;
-      padding: 16px;
-      background: var(--panel2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      margin-top:22px;
+      padding:16px;
+      background:var(--panel2);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
     }
     .social img{ height:40px; }
 
     footer{
-      margin: 22px 0 30px;
-      color: var(--muted2);
-      font-size: 0.88rem;
-      text-align: center;
+      margin:22px 0 30px;
+      color:var(--muted2);
+      font-size:.88rem;
+      text-align:center;
     }
 
     .divider{
-      margin: 18px 0;
-      height: 1px;
-      background: var(--border);
-      border: 0;
+      margin:18px 0;
+      height:1px;
+      background:var(--border);
+      border:0;
     }
   </style>
 </head>
@@ -194,42 +193,43 @@
 <div class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <b>Joe’s TPMS</b><br>
-      <span>App website</span>
+      <img src="main.png" alt="Joe’s TPMS Logo">
+      <div>
+        <b>Joe’s TPMS</b><br>
+        <span>App website</span>
+      </div>
     </div>
+
     <div class="nav-links">
       <a href="#sensors">Sensors</a>
       <a href="#links">Links</a>
-      <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">Google Play</a>
+      <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
+        Google Play
+      </a>
     </div>
   </div>
 </div>
 
 <main class="container">
 
-  <!-- FIXED HERO -->
   <section class="hero">
     <div class="hero-grid">
-
       <div>
         <h1 class="headline">Joe’s TPMS</h1>
         <p class="subhead">
           TPMS + Android Auto dashboard for supported Bluetooth Low Energy tire sensors.
           This site provides compatibility info, official links, and resources.
         </p>
+
         <div class="cta">
-          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
+          <a class="btn primary"
+             href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
+             target="_blank">
             Download on Google Play
           </a>
           <a class="btn" href="#sensors">View compatible sensors</a>
         </div>
       </div>
-
-      <div class="hero-card">
-        <img src="main.png" alt="Joe’s TPMS App Logo">
-        <p>Official app website</p>
-      </div>
-
     </div>
   </section>
 
