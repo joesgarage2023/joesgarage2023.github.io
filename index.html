@@ -39,7 +39,7 @@
       line-height:1.55;
     }
 
-    a{ color:var(--accent); text-decoration:none; }
+    a{ color:var(--accent); text-decoration:none; cursor:pointer; }
     a:hover{ text-decoration:underline; }
 
     .container{
@@ -83,6 +83,7 @@
       display:flex;
       gap:16px;
       flex-wrap:wrap;
+      align-items:center;
     }
     .nav-links a{
       color:var(--muted);
@@ -97,19 +98,19 @@
     }
 
     /* Hero */
-    .hero{ padding:40px 0 22px; text-align:center; }
-
+    .hero{
+      padding:40px 0 22px;
+      text-align:center;
+    }
     .hero-logo{
       max-width:220px;
       width:100%;
       margin:0 auto 18px;
       display:block;
     }
-
     .cta{
       display:flex;
       justify-content:center;
-      margin-top:8px;
     }
     .btn{
       padding:11px 18px;
@@ -119,6 +120,7 @@
       color:var(--text);
       font-weight:600;
       box-shadow:var(--shadow);
+      cursor:pointer;
     }
     .btn.primary{
       background:rgba(79,195,247,.14);
@@ -227,6 +229,7 @@
 
     <div class="nav-links">
       <a href="https://a.aliexpress.com/_mNeeKVR">Sensors</a>
+      <a onclick="openModal()">Instructional video</a>
       <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
         Google Play
       </a>
@@ -236,10 +239,8 @@
 
 <main class="container">
 
-  <!-- Updated Hero -->
   <section class="hero">
     <img src="main.png" alt="Joe’s TPMS Logo" class="hero-logo">
-
     <div class="cta">
       <a class="btn primary"
          href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
@@ -275,19 +276,16 @@
 
     <div class="card">
       <h2>About the App</h2>
-
       <p>
         Joe’s TPMS is an Android application designed to monitor tire pressure
         using supported Bluetooth Low Energy (BLE) TPMS sensors.
         The app provides real-time pressure data and visual status indicators
         to help drivers maintain proper tire inflation.
       </p>
-
       <p>
         Users can create vehicle profiles, assign individual sensors to tire
         positions, and configure custom alert thresholds for low or high pressure alerts.
       </p>
-
       <p>
         Joe’s TPMS also supports Android Auto, allowing compatible vehicles
         to display tire pressure information directly on the car’s infotainment
@@ -314,7 +312,7 @@
     <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
       <img src="main.png" alt="Google Play">
     </a>
-    <a href="https://youtube.com/shorts/DjFvIs5jUjI" target="_blank">
+    <a onclick="openModal()">
       <img src="youtube.png" alt="YouTube">
     </a>
   </section>
@@ -324,7 +322,7 @@
     <a href="https://www.freeprivacypolicy.com/live/7d943981-0a21-4744-9359-4c369d4d8d38" target="_blank">
       Privacy Policy
     </a><br>
-    Support: Joes_Garage2023@outlook.com
+    Joes_Garage2023@outlook.com
   </footer>
 
 </main>
