@@ -144,6 +144,7 @@
       border-radius:var(--radius);
       padding:18px;
       box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
     /* Modal */
@@ -255,35 +256,32 @@
   <section class="grid">
     <div class="card" id="sensors">
       <h2>Compatible Bluetooth TPMS Sensors</h2>
-      <p>Joe’s TPMS supports specific BLE tire sensors:</p>
 
-      <ul>
-        <li>
-          <a href="https://a.aliexpress.com/_mNeeKVR" target="_blank">
-            BLE External Tire Pressure Monitoring Sensor (AliExpress)
-          </a>
-        </li>
-      </ul>
+      <a href="https://a.aliexpress.com/_mNeeKVR" target="_blank">
+        <img
+          src="sensors4.jpg"
+          alt="Compatible Bluetooth TPMS sensors"
+          style="
+            width:100%;
+            max-width:180px;
+            float:left;
+            margin:4px 14px 10px 0;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,.12);
+            cursor:pointer;
+          "
+        >
+      </a>
 
-      <p style="color:var(--muted2); font-size:.9rem;">
+      <p>Joe’s TPMS supports specific BLE tire sensors.</p>
+
+      <p style="color:var(--muted2); font-size:.9rem; clear:both;">
         Disclaimer: Joe’s TPMS is not affiliated with AliExpress.
       </p>
 
       <button class="btn" style="margin-top:10px;" onclick="openModal()">
         Watch instructional video
       </button>
-      <img
-  src="sensors4.jpg"
-  alt="Compatible Bluetooth TPMS sensors"
-  style="
-    width:100%;
-    max-width:180px;
-    float:left;
-    margin:4px 14px 10px 0;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,.12);
-  "
->
     </div>
 
     <div class="card">
