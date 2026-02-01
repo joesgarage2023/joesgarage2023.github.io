@@ -39,7 +39,7 @@
       line-height:1.55;
     }
 
-    a{ color:var(--accent); text-decoration:none; }
+    a{ color:var(--accent); text-decoration:none; cursor:pointer; }
     a:hover{ text-decoration:underline; }
 
     .container{
@@ -112,6 +112,7 @@
       background:rgba(255,255,255,.06);
       color:var(--text);
       font-weight:600;
+      box-shadow:var(--shadow);
       cursor:pointer;
     }
 
@@ -134,7 +135,7 @@
       box-shadow:var(--shadow);
     }
 
-    /* Sensor image hover glow */
+    /* Hover glow */
     .sensor-link img{
       transition: box-shadow .25s ease, transform .25s ease;
     }
@@ -182,6 +183,19 @@
       cursor:pointer;
       font-weight:bold;
     }
+
+    /* Social */
+    .social{
+      display:flex;
+      justify-content:center;
+      gap:22px;
+      margin-top:22px;
+      padding:16px;
+      background:var(--panel2);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+    }
+    .social img{ height:40px; }
 
     footer{
       margin:22px 0 30px;
@@ -241,20 +255,11 @@
         <img
           src="sensors4.jpg"
           alt="Compatible Bluetooth TPMS sensors"
-          style="
-            width:100%;
-            max-width:220px;
-            display:block;
-            margin:12px auto 14px;
-            border-radius:12px;
-            border:1px solid rgba(255,255,255,.12);
-          "
+          style="width:100%;max-width:220px;display:block;margin:12px auto 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);"
         >
       </a>
 
-      <button class="btn" style="margin-top:6px;" onclick="openModal()">
-        Watch instructional video
-      </button>
+      <button class="btn" onclick="openModal()">Watch instructional video</button>
 
       <p style="color:var(--muted2); font-size:.9rem; margin-top:10px;">
         Disclaimer: Joe’s TPMS is not affiliated with AliExpress.
@@ -277,6 +282,29 @@
     </div>
   </section>
 
+  <!-- Screenshots -->
+  <section style="margin-top:28px;">
+    <h2>Screenshots</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+      <img src="20251019_134609.jpg" loading="lazy" style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.12);">
+      <img src="IMG-20251021-WA0009.jpg" loading="lazy" style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.12);">
+      <img src="IMG-20251126-WA0016.jpg" loading="lazy" style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.12);">
+      <img src="Screenshot_20251205_145205_TPMS.jpg" loading="lazy" style="width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.12);">
+    </div>
+  </section>
+
+  <section class="social">
+    <a href="https://www.instagram.com/joes_garage2023" target="_blank">
+      <img src="instagram.png" alt="Instagram">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
+      <img src="TPMS.png" alt="Google Play">
+    </a>
+    <a onclick="openModal()">
+      <img src="youtube.png" alt="YouTube">
+    </a>
+  </section>
+
   <footer>
     © <span id="year"></span> Joe’s Garage 2023 ·
     <a href="https://www.freeprivacypolicy.com/live/7d943981-0a21-4744-9359-4c369d4d8d38" target="_blank">
@@ -290,8 +318,7 @@
 <div class="modal" id="videoModal" onclick="closeModal(event)">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal()">×</button>
-    <iframe src="https://www.youtube.com/embed/DjFvIs5jUjI"
-            allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/DjFvIs5jUjI" allowfullscreen></iframe>
   </div>
 </div>
 
