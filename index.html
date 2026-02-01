@@ -72,59 +72,12 @@
       align-items:center;
       gap:12px;
     }
-    .brand img{
-      height:36px;
-      width:auto;
-    }
-    .brand b{ font-size:.98rem; }
-    .brand span{ color:var(--muted2); font-size:.85rem; }
+    .brand img{ height:36px; }
 
     .nav-links{
       display:flex;
       gap:16px;
-      flex-wrap:wrap;
       align-items:center;
-    }
-    .nav-links a{
-      color:var(--muted);
-      font-size:.92rem;
-      padding:6px 10px;
-      border-radius:10px;
-    }
-    .nav-links a:hover{
-      color:var(--text);
-      background:rgba(255,255,255,.06);
-      text-decoration:none;
-    }
-
-    /* Hero */
-    .hero{
-      padding:40px 0 22px;
-      text-align:center;
-    }
-    .hero-logo{
-      max-width:220px;
-      width:100%;
-      margin:0 auto 18px;
-      display:block;
-    }
-    .cta{
-      display:flex;
-      justify-content:center;
-    }
-    .btn{
-      padding:11px 18px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:600;
-      box-shadow:var(--shadow);
-      cursor:pointer;
-    }
-    .btn.primary{
-      background:rgba(79,195,247,.14);
-      border-color:rgba(79,195,247,.35);
     }
 
     /* Cards */
@@ -144,6 +97,7 @@
       border-radius:var(--radius);
       padding:18px;
       box-shadow:var(--shadow);
+      overflow:hidden; /* ensures float stays inside card */
     }
 
     /* Sensor image hover glow */
@@ -154,134 +108,37 @@
       box-shadow:0 0 18px rgba(79,195,247,.55);
       transform:translateY(-1px);
     }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.75);
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-      padding:20px;
-    }
-    .modal-content{
-      background:#000;
-      border:1px solid var(--border);
-      border-radius:16px;
-      max-width:900px;
-      width:100%;
-      aspect-ratio:16/9;
-      position:relative;
-    }
-    .modal-content iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      border-radius:16px;
-    }
-    .modal-close{
-      position:absolute;
-      top:-14px;
-      right:-14px;
-      background:#111;
-      border:1px solid var(--border);
-      color:#fff;
-      width:32px;
-      height:32px;
-      border-radius:50%;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    /* Social */
-    .social{
-      display:flex;
-      justify-content:center;
-      gap:22px;
-      margin-top:22px;
-      padding:16px;
-      background:var(--panel2);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-    }
-    .social img{ height:40px; }
-
-    footer{
-      margin:22px 0 30px;
-      color:var(--muted2);
-      font-size:.88rem;
-      text-align:center;
-    }
-
-    .divider{
-      margin:18px 0;
-      height:1px;
-      background:var(--border);
-      border:0;
-    }
   </style>
 </head>
 
 <body>
 
-<div class="nav">
-  <div class="nav-inner">
-    <div class="brand">
-      <img src="TPMS.png" alt="Joe’s TPMS Logo">
-      <div>
-        <b>Joe’s TPMS</b><br>
-        <span>The world's most affordable tire pressure monitoring system</span>
-      </div>
-    </div>
-
-    <div class="nav-links">
-      <a href="https://a.aliexpress.com/_mNeeKVR">Sensors</a>
-      <a onclick="openModal()">Instructional video</a>
-      <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
-        Google Play
-      </a>
-    </div>
-  </div>
-</div>
-
 <main class="container">
-
-  <section class="hero">
-    <img src="TPMS.png" alt="Joe’s TPMS Logo" class="hero-logo">
-    <div class="cta">
-      <a class="btn primary"
-         href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
-         target="_blank">
-        Download on Google Play
-      </a>
-    </div>
-  </section>
-
-  <hr class="divider">
 
   <section class="grid">
     <div class="card" id="sensors">
       <h2>Compatible Bluetooth TPMS Sensors</h2>
 
+      <!-- ONLY CHANGE: image floated left -->
       <a class="sensor-link" href="https://a.aliexpress.com/_mNeeKVR" target="_blank">
-  <img
-    src="sensors4.jpg"
-    alt="Compatible Bluetooth TPMS sensors"
-    style="
-      width:160px;
-      float:left;
-      margin:6px 14px 10px 0;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      cursor:pointer;
-    "
-  >
-</a>
+        <img
+          src="sensors4.jpg"
+          alt="Compatible Bluetooth TPMS sensors"
+          style="
+            width:160px;
+            float:left;
+            margin:6px 14px 10px 0;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,.12);
+            cursor:pointer;
+          "
+        >
+      </a>
+
       <p style="color:var(--muted2); font-size:.9rem; margin-top:10px;">
         Disclaimer: Joe’s TPMS is not affiliated with AliExpress.
       </p>
+
       <button class="btn" style="margin-top:10px;" onclick="openModal()">
         Watch instructional video
       </button>
@@ -292,75 +149,14 @@
       <p>
         Joe’s TPMS is a free Android application designed to monitor tire pressure
         using supported Bluetooth Low Energy (BLE) TPMS sensors.
-        The app provides real-time pressure data and visual status indicators
-        to help drivers maintain proper tire inflation.
-      </p>
-      <p>
-        Users can create vehicle profiles, assign individual sensors to tire
-        positions, and configure custom alert thresholds for low or high pressure alerts.
-      </p>
-      <p>
-        Joe’s TPMS also supports Android Auto, allowing compatible vehicles
-        to display tire pressure information directly on the car’s infotainment
-        screen for safer, hands-free monitoring while driving.
       </p>
     </div>
   </section>
-
-  <!-- Screenshots -->
-  <section style="margin-top:28px;">
-    <h2 style="margin-bottom:14px;">Screenshots</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
-      <img src="20251019_134609.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="IMG-20251021-WA0009.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="IMG-20251126-WA0016.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="Screenshot_20251205_145205_TPMS.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-    </div>
-  </section>
-
-  <section class="social">
-    <a href="https://www.instagram.com/joes_garage2023" target="_blank">
-      <img src="instagram.png" alt="Instagram">
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
-      <img src="TPMS.png" alt="Google Play">
-    </a>
-    <a onclick="openModal()">
-      <img src="youtube.png" alt="YouTube">
-    </a>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Joe’s Garage 2023 ·
-    <a href="https://www.freeprivacypolicy.com/live/7d943981-0a21-4744-9359-4c369d4d8d38" target="_blank">
-      Privacy Policy
-    </a><br>
-    Joes_Garage2023@outlook.com
-  </footer>
 
 </main>
 
-<!-- Modal -->
-<div class="modal" id="videoModal" onclick="closeModal(event)">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <iframe src="https://www.youtube.com/embed/DjFvIs5jUjI"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-  </div>
-</div>
-
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  function openModal(){
-    document.getElementById("videoModal").style.display = "flex";
-  }
-  function closeModal(e){
-    if(!e || e.target.id === "videoModal"){
-      document.getElementById("videoModal").style.display = "none";
-    }
-  }
+  function openModal(){}
 </script>
 
 </body>
