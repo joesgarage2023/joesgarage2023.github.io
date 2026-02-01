@@ -39,7 +39,7 @@
       line-height:1.55;
     }
 
-    a{ color:var(--accent); text-decoration:none; cursor:pointer; }
+    a{ color:var(--accent); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
     .container{
@@ -72,17 +72,13 @@
       align-items:center;
       gap:12px;
     }
-    .brand img{
-      height:36px;
-      width:auto;
-    }
+    .brand img{ height:36px; }
     .brand b{ font-size:.98rem; }
     .brand span{ color:var(--muted2); font-size:.85rem; }
 
     .nav-links{
       display:flex;
       gap:16px;
-      flex-wrap:wrap;
       align-items:center;
     }
     .nav-links a{
@@ -108,10 +104,7 @@
       margin:0 auto 18px;
       display:block;
     }
-    .cta{
-      display:flex;
-      justify-content:center;
-    }
+
     .btn{
       padding:11px 18px;
       border-radius:12px;
@@ -119,12 +112,7 @@
       background:rgba(255,255,255,.06);
       color:var(--text);
       font-weight:600;
-      box-shadow:var(--shadow);
       cursor:pointer;
-    }
-    .btn.primary{
-      background:rgba(79,195,247,.14);
-      border-color:rgba(79,195,247,.35);
     }
 
     /* Cards */
@@ -144,7 +132,15 @@
       border-radius:var(--radius);
       padding:18px;
       box-shadow:var(--shadow);
-      overflow:hidden;
+    }
+
+    /* Sensor image hover glow */
+    .sensor-link img{
+      transition: box-shadow .25s ease, transform .25s ease;
+    }
+    .sensor-link:hover img{
+      box-shadow:0 0 18px rgba(79,195,247,.55);
+      transform:translateY(-1px);
     }
 
     /* Modal */
@@ -187,19 +183,6 @@
       font-weight:bold;
     }
 
-    /* Social */
-    .social{
-      display:flex;
-      justify-content:center;
-      gap:22px;
-      margin-top:22px;
-      padding:16px;
-      background:var(--panel2);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-    }
-    .social img{ height:40px; }
-
     footer{
       margin:22px 0 30px;
       color:var(--muted2);
@@ -211,7 +194,6 @@
       margin:18px 0;
       height:1px;
       background:var(--border);
-      border:0;
     }
   </style>
 </head>
@@ -242,13 +224,11 @@
 
   <section class="hero">
     <img src="TPMS.png" alt="Joe’s TPMS Logo" class="hero-logo">
-    <div class="cta">
-      <a class="btn primary"
-         href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
-         target="_blank">
-        Download on Google Play
-      </a>
-    </div>
+    <a class="btn"
+       href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
+       target="_blank">
+      Download on Google Play
+    </a>
   </section>
 
   <hr class="divider">
@@ -257,31 +237,28 @@
     <div class="card" id="sensors">
       <h2>Compatible Bluetooth TPMS Sensors</h2>
 
-      <a href="https://a.aliexpress.com/_mNeeKVR" target="_blank">
+      <a class="sensor-link" href="https://a.aliexpress.com/_mNeeKVR" target="_blank">
         <img
           src="sensors4.jpg"
           alt="Compatible Bluetooth TPMS sensors"
           style="
             width:100%;
-            max-width:180px;
-            float:left;
-            margin:4px 14px 10px 0;
+            max-width:220px;
+            display:block;
+            margin:12px auto 14px;
             border-radius:12px;
             border:1px solid rgba(255,255,255,.12);
-            cursor:pointer;
           "
         >
       </a>
 
-      <p>Joe’s TPMS supports specific BLE tire sensors.</p>
-
-      <p style="color:var(--muted2); font-size:.9rem; clear:both;">
-        Disclaimer: Joe’s TPMS is not affiliated with AliExpress.
-      </p>
-
-      <button class="btn" style="margin-top:10px;" onclick="openModal()">
+      <button class="btn" style="margin-top:6px;" onclick="openModal()">
         Watch instructional video
       </button>
+
+      <p style="color:var(--muted2); font-size:.9rem; margin-top:10px;">
+        Disclaimer: Joe’s TPMS is not affiliated with AliExpress.
+      </p>
     </div>
 
     <div class="card">
@@ -289,42 +266,15 @@
       <p>
         Joe’s TPMS is a free Android application designed to monitor tire pressure
         using supported Bluetooth Low Energy (BLE) TPMS sensors.
-        The app provides real-time pressure data and visual status indicators
-        to help drivers maintain proper tire inflation.
       </p>
       <p>
         Users can create vehicle profiles, assign individual sensors to tire
-        positions, and configure custom alert thresholds for low or high pressure alerts.
+        positions, and configure custom alert thresholds.
       </p>
       <p>
-        Joe’s TPMS also supports Android Auto, allowing compatible vehicles
-        to display tire pressure information directly on the car’s infotainment
-        screen for safer, hands-free monitoring while driving.
+        Joe’s TPMS also supports Android Auto for hands-free, in-vehicle monitoring.
       </p>
     </div>
-  </section>
-
-  <!-- Screenshots -->
-  <section style="margin-top:28px;">
-    <h2 style="margin-bottom:14px;">Screenshots</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
-      <img src="20251019_134609.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="IMG-20251021-WA0009.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="IMG-20251126-WA0016.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="Screenshot_20251205_145205_TPMS.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-    </div>
-  </section>
-
-  <section class="social">
-    <a href="https://www.instagram.com/joes_garage2023" target="_blank">
-      <img src="instagram.png" alt="Instagram">
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
-      <img src="TPMS.png" alt="Google Play">
-    </a>
-    <a onclick="openModal()">
-      <img src="youtube.png" alt="YouTube">
-    </a>
   </section>
 
   <footer>
@@ -337,12 +287,10 @@
 
 </main>
 
-<!-- Modal -->
 <div class="modal" id="videoModal" onclick="closeModal(event)">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal()">×</button>
     <iframe src="https://www.youtube.com/embed/DjFvIs5jUjI"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
   </div>
 </div>
