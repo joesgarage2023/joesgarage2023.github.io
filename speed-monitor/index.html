@@ -25,25 +25,10 @@
 <body>
 
 
-<header class="site-header">
-
-    <div class="header-inner">
-
-        <nav class="nav-links">
-
-            <a href="/">
-                Apps
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
 <main class="container">
 
+
+    <!-- APP HERO -->
 
     <section class="app-hero">
 
@@ -60,8 +45,6 @@
             GPS Speed & Performance Monitor
         </p>
 
-        <!-- Replace this when Google Play listing is available -->
-
         <span class="btn disabled">
             Google Play — Coming Soon
         </span>
@@ -69,8 +52,12 @@
     </section>
 
 
+    <!-- APP INFORMATION -->
+
     <section class="content-grid">
 
+
+        <!-- ABOUT -->
 
         <div class="card">
 
@@ -85,13 +72,16 @@
             </p>
 
             <p>
-                It is designed for automotive enthusiasts who
+                It is designed for automotive enthusiasts,
+                daily commuters, and performance drivers who
                 want a simple way to monitor speed and record
                 performance runs using their phone or tablet.
             </p>
 
         </div>
 
+
+        <!-- FEATURES -->
 
         <div class="card">
 
@@ -126,9 +116,11 @@
 </main>
 
 
+<!-- FOOTER -->
+
 <footer>
 
-    © <span id="year"></span> Joe's Garage 2023
+    © <span id="year"></span> Joe's Speed Monitor
 
     <br>
 
@@ -141,8 +133,8 @@
 
 <script>
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
 
 </script>
 
