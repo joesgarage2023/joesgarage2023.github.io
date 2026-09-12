@@ -105,24 +105,49 @@
         </p>
 
 
+<section class="social">
+    <a href="https://www.instagram.com/joes_garage2023" target="_blank">
+      <img src="/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
+      <img src="/TPMS.png" alt="Google Play">
+    </a>
+    <a onclick="openModal()">
+      <img src="/youtube.png" alt="YouTube">
+    </a>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Joe’s Garage 2023 ·
+    <a href="https://www.freeprivacypolicy.com/live/7d943981-0a21-4744-9359-4c369d4d8d38" target="_blank">
+      Privacy Policy
+    </a><br>
+    Joes_Garage2023@outlook.com
+  </footer>
+
 </main>
 
-
-<footer>
-
-    © <span id="year"></span> Joe's Garage 2023
-    <br>
-
-    <a href="mailto:Joes_Garage2023@outlook.com">
-        Joes_Garage2023@outlook.com
-    </a>
-
-</footer>
-
+<!-- Modal -->
+<div class="modal" id="videoModal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <iframe src="https://www.youtube.com/embed/DjFvIs5jUjI"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+  </div>
+</div>
 
 <script>
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function openModal(){
+    document.getElementById("videoModal").style.display = "flex";
+  }
+  function closeModal(e){
+    if(!e || e.target.id === "videoModal"){
+      document.getElementById("videoModal").style.display = "none";
+    }
+  }
 </script>
 
 </body>
