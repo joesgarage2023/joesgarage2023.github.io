@@ -123,7 +123,13 @@ a {
     font-size: 1.1rem;
 }
 
-
+.main-logo {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    display: block;
+    margin: 0 auto 24px;
+}
 /* APP CARDS */
 
 .app-grid {
