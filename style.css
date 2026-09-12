@@ -315,6 +315,35 @@ a {
     padding-left: 22px;
 }
 
+/* SCREENSHOTS */
+
+.screenshot-section {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.screenshot-section h2 {
+    margin-bottom: 22px;
+}
+
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.screenshot-grid img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    border-radius: 14px;
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
 
 /* SOCIAL / APP LINKS */
 
