@@ -126,18 +126,6 @@
     </section>
 
 
-    <!-- MAIN JOE'S GARAGE LOGO -->
-
-    <section class="main-logo-section">
-
-        <img
-            src="/main.png"
-            alt="Joe's Garage 2023"
-            class="main-logo"
-        >
-
-    </section>
-
 
     <!-- SOCIAL / APP LINKS -->
 
@@ -166,13 +154,7 @@
     rel="noopener noreferrer"
     aria-label="Joe's Garage apps on Google Play"
 >
-    <img
-        src="/TPMS.png"
-        alt="Google Play"
-    >
-</a>
-
-
+    
         <!-- YouTube -->
 
         <a
@@ -213,68 +195,6 @@
     </a>
 
 </footer>
-
-
-<!-- YOUTUBE VIDEO MODAL -->
-
-<div
-    class="modal"
-    id="videoModal"
-    onclick="closeModal(event)"
->
-
-    <div class="modal-content">
-
-        <button
-            class="modal-close"
-            onclick="closeModal()"
-            aria-label="Close video"
-        >
-            ×
-        </button>
-
-        <iframe
-            src="https://www.youtube.com/embed/DjFvIs5jUjI"
-            title="Joe's Garage YouTube Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-        >
-        </iframe>
-
-    </div>
-
-</div>
-
-
-<script>
-
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
-
-
-    function openModal() {
-
-        document.getElementById("videoModal").style.display =
-            "flex";
-
-    }
-
-
-    function closeModal(event) {
-
-        if (
-            !event ||
-            event.target.id === "videoModal"
-        ) {
-
-            document.getElementById("videoModal").style.display =
-                "none";
-
-        }
-
-    }
-
-</script>
 
 
 </body>
