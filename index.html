@@ -1,387 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Joe’s TPMS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official website for the Joe’s TPMS Android app." />
+    <meta charset="UTF-8">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Joe’s TPMS" />
-  <meta property="og:description" content="TPMS + Android Auto dashboard for BLE tire sensors." />
-  <meta property="og:type" content="website" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-  <style>
-    :root{
-      --bg:#000;
-      --panel:#0b0b0b;
-      --panel2:#101010;
-      --border:rgba(255,255,255,.10);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.65);
-      --muted2:rgba(255,255,255,.48);
-      --accent:#4FC3F7;
-      --shadow:0 12px 30px rgba(0,0,0,.45);
-      --radius:16px;
-      --max:1100px;
-    }
+    <title>Joe's Garage Apps</title>
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    <meta
+        name="description"
+        content="Official website for Joe's Garage Android apps."
+    >
 
-    body{
-      margin:0;
-      background:
-        radial-gradient(1200px 600px at 50% -150px, rgba(79,195,247,.18), transparent 70%),
-        var(--bg);
-      color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      line-height:1.55;
-    }
-
-    a{ color:var(--accent); text-decoration:none; cursor:pointer; }
-    a:hover{ text-decoration:underline; }
-
-    .container{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:22px;
-    }
-
-    /* Top nav */
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:10;
-      backdrop-filter:blur(10px);
-      background:rgba(0,0,0,.55);
-      border-bottom:1px solid var(--border);
-    }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:14px 22px;
-      max-width:var(--max);
-      margin:0 auto;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-    .brand img{
-      height:36px;
-      width:auto;
-    }
-    .brand b{ font-size:.98rem; }
-    .brand span{ color:var(--muted2); font-size:.85rem; }
-
-    .nav-links{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .nav-links a{
-      color:var(--muted);
-      font-size:.92rem;
-      padding:6px 10px;
-      border-radius:10px;
-    }
-    .nav-links a:hover{
-      color:var(--text);
-      background:rgba(255,255,255,.06);
-      text-decoration:none;
-    }
-
-    /* Hero */
-    .hero{
-      padding:40px 0 22px;
-      text-align:center;
-    }
-    .hero-logo{
-      max-width:220px;
-      width:100%;
-      margin:0 auto 18px;
-      display:block;
-    }
-    .cta{
-      display:flex;
-      justify-content:center;
-    }
-    .btn{
-      padding:11px 18px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:600;
-      box-shadow:var(--shadow);
-      cursor:pointer;
-    }
-    .btn.primary{
-      background:rgba(79,195,247,.14);
-      border-color:rgba(79,195,247,.35);
-    }
-
-    /* Cards */
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin-top:18px;
-    }
-    @media (max-width:900px){
-      .grid{ grid-template-columns:1fr; }
-    }
-
-    .card{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-    }
-
-    /* Sensor image hover glow */
-    .sensor-link img{
-      transition: box-shadow .25s ease, transform .25s ease;
-    }
-    .sensor-link:hover img{
-      box-shadow:0 0 18px rgba(79,195,247,.55);
-      transform:translateY(-1px);
-    }
-
-    /* Modal */
-    .modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.75);
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-      padding:20px;
-    }
-    .modal-content{
-      background:#000;
-      border:1px solid var(--border);
-      border-radius:16px;
-      max-width:900px;
-      width:100%;
-      aspect-ratio:16/9;
-      position:relative;
-    }
-    .modal-content iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      border-radius:16px;
-    }
-    .modal-close{
-      position:absolute;
-      top:-14px;
-      right:-14px;
-      background:#111;
-      border:1px solid var(--border);
-      color:#fff;
-      width:32px;
-      height:32px;
-      border-radius:50%;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    /* Social */
-    .social{
-      display:flex;
-      justify-content:center;
-      gap:22px;
-      margin-top:22px;
-      padding:16px;
-      background:var(--panel2);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-    }
-    .social img{ height:40px; }
-
-    footer{
-      margin:22px 0 30px;
-      color:var(--muted2);
-      font-size:.88rem;
-      text-align:center;
-    }
-
-    .divider{
-      margin:18px 0;
-      height:1px;
-      background:var(--border);
-      border:0;
-    }
-  </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-<div class="nav">
-  <div class="nav-inner">
-    <div class="brand">
-      <img src="TPMS.png" alt="Joe’s TPMS Logo">
-      <div>
-        <b>Joe’s TPMS</b><br>
-        <span>The world's most affordable tire pressure monitoring system</span>
-      </div>
-    </div>
+<header class="site-header">
+    <div class="header-inner">
 
-    <div class="nav-links">
-      <a href="https://a.aliexpress.com/_mLmIHWJ" target="_blank">Sensors</a>
-      <a onclick="openModal()">Instructional video</a>
-      <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
-        Google Play
-      </a>
+        <a href="/" class="site-name">
+            JOE'S GARAGE
+        </a>
+
+        <nav class="nav-links">
+            <a href="/tpms/">Joe's TPMS</a>
+            <a href="/speed-monitor/">Speed Monitor</a>
+        </nav>
+
     </div>
-  </div>
-</div>
+</header>
+
 
 <main class="container">
 
-  <section class="hero">
-    <img src="TPMS.png" alt="Joe’s TPMS Logo" class="hero-logo">
-    <div class="cta">
-      <a class="btn primary"
-         href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
-         target="_blank">
-        Download on Google Play
-      </a>
-    </div>
-  </section>
+    <section class="hero">
 
-  <hr class="divider">
+        <h1>Joe's Garage</h1>
 
-  <section class="grid">
-    <div class="card" id="sensors">
-      <h2>Compatible Bluetooth TPMS Sensors</h2>
-      <p>
-        Supported BLE sensor names:
-         BR, AI-8000, SY-4300 (Beta testing), FBB0 (Alpha testing).
-      </p>
-      <a class="sensor-link" href="https://a.aliexpress.com/_mLmIHWJ" target="_blank">
-        <img
-          src="sensors4.jpg"
-          alt="Compatible Bluetooth TPMS sensors"
-          style="
-            width:100%;
-            max-width:220px;
-            display:block;
-            margin:10px auto 12px;
-            border-radius:12px;
-            border:1px solid rgba(255,255,255,.12);
-            cursor:pointer;
-          "
-        >
-      </a>
-      <p style="color:var(--muted2); font-size:.9rem; margin-top:10px;">
-        Disclaimer: Joe’s TPMS is not affiliated with AliExpress, the online seller, or the sensor manufacturer.
-      </p>
-      <button class="btn" style="margin-top:10px;" onclick="openModal()">
-        Watch Instructional Video
-      </button>
-    </div>
+        <p>
+            Android apps built for automotive enthusiasts,
+            drivers and performance monitoring.
+        </p>
 
-   <div class="card">
-  <h2>About the App</h2>
+    </section>
 
-  <p>
-    Joe’s TPMS is a free Android application designed to monitor tire pressure
-    using supported Bluetooth Low Energy (BLE) TPMS sensors.
-    The app provides real-time pressure data and visual status indicators
-    to help drivers maintain proper tire inflation.
-  </p>
 
-  <p>
-    Users can create vehicle profiles, assign individual sensors to tire
-    positions, and configure custom alert thresholds for low and high pressure alerts.
-  </p>
+    <section class="app-grid">
 
-  <p>
-    Joe’s TPMS also supports Android Auto, allowing compatible vehicles
-    to display tire pressure information directly on the car’s infotainment
-    screen for safer, hands-free monitoring while driving.
-  </p>
 
-  <p>
-    Join the tester group to test the latest updates and features.
-  </p>
+        <!-- TPMS -->
 
-  <a
-    class="btn"
-    style="margin-top:10px; display:inline-block;"
-    href="https://groups.google.com/g/joes-tpms-tester-group"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Join Tester Group
-  </a>
-</div>
-  </section>
+        <article class="app-card">
 
-  <!-- Screenshots -->
-  <section style="margin-top:28px;">
-    <h2 style="margin-bottom:14px;">Screenshots</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
-      <img src="20251019_134609.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="IMG-20251021-WA0009.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="IMG-20251126-WA0016.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-      <img src="Screenshot_20251205_145205_TPMS.jpg" loading="lazy" style="width:100%; border-radius:14px; border:1px solid rgba(255,255,255,.12);">
-    </div>
-  </section>
+            <img
+                src="/TPMS.png"
+                alt="Joe's TPMS"
+                class="app-logo"
+            >
 
-  <section class="social">
-    <a href="https://www.instagram.com/joes_garage2023" target="_blank">
-      <img src="instagram.png" alt="Instagram">
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
-      <img src="TPMS.png" alt="Google Play">
-    </a>
-    <a onclick="openModal()">
-      <img src="youtube.png" alt="YouTube">
-    </a>
-  </section>
+            <h2>Joe's TPMS</h2>
 
-  <footer>
-    © <span id="year"></span> Joe’s Garage 2023 ·
-    <a href="https://www.freeprivacypolicy.com/live/7d943981-0a21-4744-9359-4c369d4d8d38" target="_blank">
-      Privacy Policy
-    </a><br>
-    Joes_Garage2023@outlook.com
-  </footer>
+            <p>
+                Real-time Bluetooth tire pressure monitoring
+                with configurable vehicle profiles, alerts
+                and Android Auto support.
+            </p>
+
+            <a
+                href="/tpms/"
+                class="btn"
+            >
+                View Joe's TPMS
+            </a>
+
+        </article>
+
+
+        <!-- SPEED MONITOR -->
+
+        <article class="app-card">
+
+            <img
+                src="/SpeedMonitor.png"
+                alt="Joe's Speed Monitor"
+                class="app-logo"
+            >
+
+            <h2>Joe's Speed Monitor</h2>
+
+            <p>
+                GPS-based speed and performance monitoring
+                with acceleration, top-speed and
+                drag-racing performance measurements.
+            </p>
+
+            <a
+                href="/speed-monitor/"
+                class="btn"
+            >
+                View Speed Monitor
+            </a>
+
+        </article>
+
+
+    </section>
 
 </main>
 
-<!-- Modal -->
-<div class="modal" id="videoModal" onclick="closeModal(event)">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <iframe src="https://www.youtube.com/embed/DjFvIs5jUjI"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-  </div>
-</div>
+
+<footer>
+
+    © <span id="year"></span> Joe's Garage 2023
+    <br>
+
+    <a href="mailto:Joes_Garage2023@outlook.com">
+        Joes_Garage2023@outlook.com
+    </a>
+
+</footer>
+
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  function openModal(){
-    document.getElementById("videoModal").style.display = "flex";
-  }
-  function closeModal(e){
-    if(!e || e.target.id === "videoModal"){
-      document.getElementById("videoModal").style.display = "none";
-    }
-  }
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 </script>
 
 </body>
