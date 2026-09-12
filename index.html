@@ -21,23 +21,49 @@
 
 <body>
 
+
 <header class="site-header">
+
     <div class="header-inner">
-        
+
         <nav class="nav-links">
-            <a href="/tpms/">Joe's TPMS</a>
-            <a href="/speed-monitor/">Joe's Speed Monitor</a>
+
+            <a href="/tpms/">
+                Joe's TPMS
+            </a>
+
+            <a href="/speed-monitor/">
+                Joe's Speed Monitor
+            </a>
+
         </nav>
 
     </div>
+
 </header>
 
 
 <main class="container">
 
+
+    <!-- INTRO -->
+
+    <section class="hero">
+
+        <p>
+            Android apps built for automotive enthusiasts,
+            daily commuters, and performance driving.
+        </p>
+
+    </section>
+
+
+    <!-- APPS -->
+
     <section class="app-grid">
 
-        <!-- TPMS -->
+
+        <!-- JOE'S TPMS -->
 
         <article class="app-card">
 
@@ -47,7 +73,9 @@
                 class="app-logo"
             >
 
-            <h2>Joe's TPMS</h2>
+            <h2>
+                Joe's TPMS
+            </h2>
 
             <p>
                 Real-time Bluetooth tire pressure monitoring
@@ -65,7 +93,7 @@
         </article>
 
 
-        <!-- SPEED MONITOR -->
+        <!-- JOE'S SPEED MONITOR -->
 
         <article class="app-card">
 
@@ -75,7 +103,9 @@
                 class="app-logo"
             >
 
-            <h2>Joe's Speed Monitor</h2>
+            <h2>
+                Joe's Speed Monitor
+            </h2>
 
             <p>
                 GPS-based speed and performance monitoring
@@ -92,63 +122,161 @@
 
         </article>
 
+
     </section>
 
 
+    <!-- MAIN JOE'S GARAGE LOGO -->
+
     <section class="main-logo-section">
-        
-        <section class="hero">
 
-        <p>
-            Android apps built for automotive enthusiasts,
-            daily commuters, and performance driving.
-        </p>
+        <img
+            src="/main.png"
+            alt="Joe's Garage 2023"
+            class="main-logo"
+        >
+
+    </section>
 
 
-<section class="social">
-    <a href="https://www.instagram.com/joes_garage2023" target="_blank">
-      <img src="/instagram.png" alt="Instagram">
-    </a>
-    <a href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms" target="_blank">
-      <img src="/TPMS.png" alt="Google Play">
-    </a>
-    <a onclick="openModal()">
-      <img src="/youtube.png" alt="YouTube">
-    </a>
-  </section>
+    <!-- SOCIAL / APP LINKS -->
 
-  <footer>
-    © <span id="year"></span> Joe’s Garage 2023 ·
-    <a href="https://www.freeprivacypolicy.com/live/7d943981-0a21-4744-9359-4c369d4d8d38" target="_blank">
-      Privacy Policy
-    </a><br>
-    Joes_Garage2023@outlook.com
-  </footer>
+    <section class="social">
+
+        <!-- Instagram -->
+
+        <a
+            href="https://www.instagram.com/joes_garage2023"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Joe's Garage on Instagram"
+        >
+            <img
+                src="/instagram.png"
+                alt="Instagram"
+            >
+        </a>
+
+
+        <!-- Google Play -->
+
+        <a
+            href="https://play.google.com/store/apps/details?id=com.joesgarage2023.tpms"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Joe's TPMS on Google Play"
+        >
+            <img
+                src="/TPMS.png"
+                alt="Google Play"
+            >
+        </a>
+
+
+        <!-- YouTube -->
+
+        <a
+            href="#"
+            onclick="openModal(); return false;"
+            aria-label="Joe's Garage on YouTube"
+        >
+            <img
+                src="/youtube.png"
+                alt="YouTube"
+            >
+        </a>
+
+    </section>
+
 
 </main>
 
-<!-- Modal -->
-<div class="modal" id="videoModal" onclick="closeModal(event)">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <iframe src="https://www.youtube.com/embed/DjFvIs5jUjI"
+
+<!-- FOOTER -->
+
+<footer>
+
+    © <span id="year"></span> Joe's Garage 2023 ·
+
+    <a
+        href="https://www.freeprivacypolicy.com/live/7d943981-0a21-4744-9359-4c369d4d8d38"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        Privacy Policy
+    </a>
+
+    <br>
+
+    <a href="mailto:Joes_Garage2023@outlook.com">
+        Joes_Garage2023@outlook.com
+    </a>
+
+</footer>
+
+
+<!-- YOUTUBE VIDEO MODAL -->
+
+<div
+    class="modal"
+    id="videoModal"
+    onclick="closeModal(event)"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+            aria-label="Close video"
+        >
+            ×
+        </button>
+
+        <iframe
+            src="https://www.youtube.com/embed/DjFvIs5jUjI"
+            title="Joe's Garage YouTube Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-  </div>
+            allowfullscreen
+        >
+        </iframe>
+
+    </div>
+
 </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
 
-  function openModal(){
-    document.getElementById("videoModal").style.display = "flex";
-  }
-  function closeModal(e){
-    if(!e || e.target.id === "videoModal"){
-      document.getElementById("videoModal").style.display = "none";
+<script>
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+    function openModal() {
+
+        document.getElementById("videoModal").style.display =
+            "flex";
+
     }
-  }
+
+
+    function closeModal(event) {
+
+        if (
+            !event ||
+            event.target.id === "videoModal"
+        ) {
+
+            document.getElementById("videoModal").style.display =
+                "none";
+
+        }
+
+    }
+
 </script>
 
+
 </body>
+
 </html>
